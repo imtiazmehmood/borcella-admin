@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { useState } from "react";
 import { Trash } from "lucide-react";
@@ -27,22 +27,22 @@ const Delete: React.FC<DeleteProps> = ({ item, id }) => {
 
   const onDelete = async () => {
     try {
-      setLoading(true);
-      const itemType = item === "product" ? "products" : "collections";
+      setLoading(true)
+      const itemType = item === "product" ? "products" : "collections"
       const res = await fetch(`/api/${itemType}/${id}`, {
         method: "DELETE",
-      });
+      })
 
       if (res.ok) {
-        setLoading(false);
-        window.location.href = `/${itemType}`;
-        toast.success(`${item} deleted`);
+        setLoading(false)
+        window.location.href = (`/${itemType}`)
+        toast.success(`${item} deleted`)
       }
     } catch (err) {
-      console.log(err);
-      toast.error("Something went wrong! Please try again.");
+      console.log(err)
+      toast.error("Something went wrong! Please try again.")
     }
-  };
+  }
   return (
     <AlertDialog>
       <AlertDialogTrigger>
@@ -52,19 +52,14 @@ const Delete: React.FC<DeleteProps> = ({ item, id }) => {
       </AlertDialogTrigger>
       <AlertDialogContent className="bg-white text-grey-1">
         <AlertDialogHeader>
-          <AlertDialogTitle className="text-red-1">
-            Are you absolutely sure?
-          </AlertDialogTitle>
+          <AlertDialogTitle className="text-red-1">Are you absolutely sure?</AlertDialogTitle>
           <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete your{" "}
-            {item}.
+            This action cannot be undone. This will permanently delete your {item}.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction className="bg-red-1 text-white" onClick={onDelete}>
-            Delete
-          </AlertDialogAction>
+          <AlertDialogAction className="bg-red-1 text-white" onClick={onDelete}>Delete</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
