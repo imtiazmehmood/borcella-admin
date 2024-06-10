@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";
@@ -22,7 +22,9 @@ const TopBar = () => {
           <Link
             href={link.url}
             key={link.label}
-            className={`flex gap-4 text-body-medium ${pathname === link.url ? "text-blue-1" : "text-grey-1"}`}
+            className={`flex gap-4 text-body-medium ${
+              pathname === link.url ? "text-blue-1" : "text-grey-1"
+            }`}
           >
             <p>{link.label}</p>
           </Link>
