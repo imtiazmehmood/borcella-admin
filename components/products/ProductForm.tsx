@@ -26,8 +26,8 @@ import MultiSelect from "../custom ui/MultiSelect";
 import Loader from "../custom ui/Loader";
 
 const formSchema = z.object({
-  title: z.string().min(2).max(20),
-  description: z.string().min(2).max(500).trim(),
+  title: z.string().min(2).max(100),
+  description: z.string().min(2).max(600).trim(),
   media: z.array(z.string()),
   category: z.string(),
   collections: z.array(z.string()),
